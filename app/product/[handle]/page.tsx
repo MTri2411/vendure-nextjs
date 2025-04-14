@@ -66,9 +66,8 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
       priceCurrency: activeChannel.defaultCurrencyCode
-      // TODO: needs client helper or schema extension in Vendure
-      // highPrice: product.priceRange.maxVariantPrice.amount,
-      // lowPrice: product.priceRange.minVariantPrice.amount
+      // TODO: Vendure API không hỗ trợ trường priceRange
+      // cần cài đặt Vendure đúng phiên bản hoặc tùy chỉnh schema
     }
   };
 

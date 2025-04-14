@@ -4,9 +4,6 @@ import clsx from 'clsx';
 import { useProduct, useUpdateURL } from 'components/product/product-context';
 import {
   Product_Option_GroupFragment,
-  ProductOption,
-  ProductOptionGroup,
-  ProductVariant,
   VariantFragment
 } from 'lib/vendure/types';
 
@@ -74,7 +71,6 @@ export function VariantSelector({
                   updateURL(newState);
                 }}
                 key={value.code}
-                aria-disabled={!isAvailableForSale}
                 disabled={!isAvailableForSale}
                 title={`${optionGroup.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
                 className={clsx(

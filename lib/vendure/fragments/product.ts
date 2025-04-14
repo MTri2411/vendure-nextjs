@@ -42,10 +42,6 @@ const productFragment = gql`
         enabled
         name
         description
-        priceRange {
-            min
-            max
-        }
         optionGroups {
             ...product_option_group
         }

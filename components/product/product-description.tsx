@@ -2,11 +2,14 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import Prose from 'components/prose';
 import { ProductFragment } from 'lib/vendure/types';
-import { VariantSelector } from './variant-selector';
 import { getActiveChannel } from '../../lib/vendure';
+import { VariantSelector } from './variant-selector';
 
 export async function ProductDescription({ product }: { product: ProductFragment }) {
-  const fromPrice = product.priceRange.min;
+  // Lấy giá từ biến thể đầu tiên nếu có
+  const variants = product?.variantList?.items || [];
+  const firstVariant = variants[0];
+  const fromPrice = firstVariant?.price;
   const activeChannel = await getActiveChannel();
 
   return (
